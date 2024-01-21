@@ -1,0 +1,51 @@
+# Automation Exercise Test Otomasyonu
+
+Bu test otomasyonu, [Automation Exercise](https://www.automationexercise.com/) sitesinin "Test Case 12: Add Products in Cart" konulu test case'i için hazırlanmıştır.
+
+## Kullanılan Teknolojiler ve Framework
+
+Bu test otomasyonu, Python programlama dilini, Selenium web sürücüsünü ve Cucumber tabanlı bir test framework'ü olan Python-Cucumber'ı kullanmaktadır.
+
+Framework yapısı aşağıdaki şekildedir:
+- *features:* Bu paket, test senaryolarının adımalarını içerir. Her bir feature dosyası, bir test senaryosunu temsil eder.
+- *steps:* Steps paketi, feature dosyalarında tanımlanan adımları gerçekleştirecek olan Python metodlarını içerir.
+- *report:* Report paketi, testlerin sonuçlarına dair oluşturulan raporları içerir. Bu örnekte Allure raporu kullanılmıştır.
+
+## Kurulum
+
+1. Python'u [buradan](https://www.python.org/downloads/) indirip kurun.
+2. Gerekli Python kütüphanelerini yüklemek için terminalde şu komutu kullanın:
+
+    bash
+    pip install -r requirements.txt
+
+
+## Testi Çalıştırma
+
+Testi çalıştırmak için terminalde aşağıdaki komutu kullanın:
+
+```bash
+behave features/test.feature. Bu komut, belirtilen test senaryosunu çalıştıracak ve Allure raporunu oluşturacaktır.
+
+Raporları Görüntüleme
+Test sonrası oluşturulan Allure raporunu görüntülemek için terminalde şu komutu kullanın:
+allure serve allure-report
+
+# Selenium Test Otomasyonu ve HTML Raporlama
+Bu proje, Selenium kullanarak basit web testlerini otomatize etmek ve sonuçları HTML rapor olarak almak için kullanılır.
+
+## Kurulum
+
+Proje bağımlılıklarını yüklemek için aşağıdaki komutları kullanın:
+
+```bash
+pip install pytest
+pip install pytest-html
+pip install selenium
+
+Nasil Kullanilir
+1.test dosyanizdaki Selenyum testlerini düzenleyin veya kendi test klasörünüzü oluşturun
+2.Terminal veya komut istemcisine aşağıdaki komutlari girerek testleri çalıştırın:
+pytest <test_dosyanız.py> --html=report.html
+Testler basariyla tamamlandiğinda proje klasöründeki “report.html” dosyasini açarak HTML raporunuzu inceleyebilirsiniz.
+
