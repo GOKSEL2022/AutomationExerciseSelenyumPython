@@ -97,7 +97,7 @@ def step_impl(context):
 
     assert blue_top_cart_price_int * quantity_women_text_int == blue_top_total_price_int
     assert men_tshirt_cart_price_int * quantity_men_tshirts_int == men_tshirt_total_price_int
-    context.driver.close()
+    #context.driver.close()
 
 
 
