@@ -24,10 +24,10 @@ def step_impl(context):
 @when(u'Enter name and email address')
 def step_impl(context):
     nameNewUserSignupLogin=context.driver.find_element(By.XPATH, "//*[@name='name']")
-    nameNewUserSignupLogin.send_keys("goksel celik")
+    nameNewUserSignupLogin.send_keys("ahmetcelebi")
     time.sleep(2)
     emailAddressNewUserSignupLogin = context.driver.find_element(By.XPATH, "//*[@data-qa='signup-email']")
-    emailAddressNewUserSignupLogin.send_keys("gokselcelik@gmail.com")
+    emailAddressNewUserSignupLogin.send_keys("ahmetcelebi@gmail.com")
     time.sleep(1)
 
 @when(u'Click Signup button')
@@ -102,6 +102,36 @@ def step_impl(context):
     time.sleep(2)
     createAccountButtonSignup=context.driver.find_element(By.XPATH, "(//*[@class='btn btn-default'])[1]")
     createAccountButtonSignup.click()
+
+
+@when(u'Verify that ACCOUNT CREATED is visible')
+def step_impl(context):
+    createAccountTextAccountCreate=context.driver.find_element(By.XPATH, "(//*[.='Account Created!'])[2]")
+    assert createAccountTextAccountCreate.is_displayed(), "ACCOUNT CREATED görünür."
+
+@when(u'Click Continue button')
+def step_impl(context):
+    accountContinueButtonAccountCreate=context.driver.find_element(By.XPATH, "//div[@class='pull-right']")
+    accountContinueButtonAccountCreate.click()
+    context.driver.refresh()
+    time.sleep(1)
+    accountContinueButtonAccountCreate.click()
+
+@when(u'Verify that Logged in as username is visible')
+def step_impl(context):
+    loggedUsernameTextAccountCreate=context.driver.find_element(By.XPATH, "//*[.='ahmetcelebi']")
+    assert loggedUsernameTextAccountCreate.is_displayed(), "Logged in as username is visible"
+
+@when(u'Click Delete Account button')
+def step_impl(context):
+    deleteAccountButtonAccountCreate=context.driver.find_element(By.XPATH, "(//*[.=' Delete Account'])[2]")
+    deleteAccountButtonAccountCreate.click()
+@when(u'Verify that ACCOUNT DELETED is visible and click Continue button')
+def step_impl(context):
+    accountDeletedTextAccountCreate=context.driver.find_element(By.XPATH, "(//*[.='Account Deleted!'])[2]")
+    assert accountDeletedTextAccountCreate.is_displayed(), "ACCOUNT DELETED is visible"
+
+
 
 
 
