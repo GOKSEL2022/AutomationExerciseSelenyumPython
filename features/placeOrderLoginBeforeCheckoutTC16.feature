@@ -10,5 +10,7 @@ And   Click Cart button
 And   Verify that cart page is displayed
 And   Click Proceed To Checkout
 And   Verify Address Details and Review Your Order
+And   Enter description in comment text area and click Place Order
+And   Enter payment details Name on Card Card Number CVC Expiration date
 
 
