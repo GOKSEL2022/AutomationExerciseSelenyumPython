@@ -25,7 +25,7 @@ Framework yapısı aşağıdaki şekildedir:
 Testi çalıştırmak için terminalde aşağıdaki komutu kullanın:
 
 ```bash
-behave features/test.feature. Bu komut, belirtilen test senaryosunu çalıştıracak ve Allure raporunu oluşturacaktır.
+behave features/addProductsInCartTC12.feature ENTER Bu komut, belirtilen test senaryosunu çalıştıracak ve Allure raporunu oluşturacaktır.
 
 Raporları Görüntüleme
 Test sonrası oluşturulan Allure raporunu görüntülemek için terminalde şu komutu kullanın:
