@@ -90,10 +90,6 @@ def step_impl(context):
     comment_text_area_textbox_checkout.send_keys("Aldiğim ürünlerden memnun kaldim ,tekrar görüşmek üzere ")
     place_order_button_checkout = context.driver.find_element(By.XPATH, "//*[@href='/payment']")
     place_order_button_checkout.click()
-    context.driver.refresh()
-    comment_text_area_textbox_checkout.send_keys("Aldiğim ürünlerden memnun kaldim ,tekrar görüşmek üzere ")
-    place_order_button_checkout.click()
-
 
 @when(u'Enter payment details Name on Card Card Number CVC Expiration date')
 def step_impl(context):
@@ -107,4 +103,21 @@ def step_impl(context):
     mm_textbox_payment.send_keys("12")
     yyyy_textbox_payment = context.driver.find_element(By.XPATH, "//*[@data-qa='expiry-year']")
     yyyy_textbox_payment.send_keys("2024")
+
+    @when(u'Click Pay and Confirm Order button')
+    def step_impl(context):
+        pay_and_confirm_order_button = context.driver.find_element(By.XPATH, "//*[@data-qa='pay-button']")
+        pay_and_confirm_order_button.click()
+
+    @when(u'Verify success message Your order has been placed successfully')
+    def step_impl(context):
+        your_order_has_been_placed_successfully_alert = context.driver.find_element(By.XPATH,
+                                                                                    "(//*[@class='alert-success alert'])[1]")
+        assert your_order_has_been_placed_successfully_alert.is_displayed()
+
+    @when(u'Click Pay and Confirm Order button')
+    def step_impl(context):
+        pay_and_confirm_order_button=context.driver.find_element(By.XPATH, "//*[@data-qa='pay-button']")
+        pay_and_confirm_order_button.click()
+
 
