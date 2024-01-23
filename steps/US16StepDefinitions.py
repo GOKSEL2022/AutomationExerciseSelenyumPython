@@ -90,3 +90,21 @@ def step_impl(context):
     comment_text_area_textbox_checkout.send_keys("Aldiğim ürünlerden memnun kaldim ,tekrar görüşmek üzere ")
     place_order_button_checkout = context.driver.find_element(By.XPATH, "//*[@href='/payment']")
     place_order_button_checkout.click()
+    context.driver.refresh()
+    comment_text_area_textbox_checkout.send_keys("Aldiğim ürünlerden memnun kaldim ,tekrar görüşmek üzere ")
+    place_order_button_checkout.click()
+
+
+@when(u'Enter payment details Name on Card Card Number CVC Expiration date')
+def step_impl(context):
+    name_on_card_textbox_payment = context.driver.find_element(By.XPATH, "//*[@data-qa='name-on-card']")
+    name_on_card_textbox_payment.send_keys("Göksel")
+    card_number_textbox_payment = context.driver.find_element(By.XPATH, "//*[@data-qa='card-number']")
+    card_number_textbox_payment.send_keys("5255")
+    cvc_textbox_payment = context.driver.find_element(By.XPATH, "//*[@data-qa='cvc']")
+    cvc_textbox_payment.send_keys("123")
+    mm_textbox_payment = context.driver.find_element(By.XPATH, "//*[@data-qa='expiry-month']")
+    mm_textbox_payment.send_keys("12")
+    yyyy_textbox_payment = context.driver.find_element(By.XPATH, "//*[@data-qa='expiry-year']")
+    yyyy_textbox_payment.send_keys("2024")
+
