@@ -128,8 +128,8 @@ def step_impl(context):
     account_continue_button_account_create = context.driver.find_element(By.XPATH, "//div[@class='pull-right']")
     account_continue_button_account_create.click()
     context.driver.refresh()
-    context.driver.implicitly_wait(account_continue_button_account_create)
-    account_continue_button_account_create.click()
+    account_continue_button_account_create2=context.driver.find_element(By.XPATH, "//div[@class='pull-right']")
+    account_continue_button_account_create2.click()
 
 
 @when(u'Verify that Logged in as username is visible')
@@ -140,13 +140,13 @@ def step_impl(context):
 
 @when(u'Click Delete Account button')
 def step_impl(context):
-    delete_account_button_account_create = context.driver.find_element(By.XPATH, "//*[@href='/delete_account']")
+    delete_account_button_account_create = context.driver.find_element(By.XPATH, "(//*[@style='color:brown;'])[2]")
     delete_account_button_account_create.click()
 
 
 @when(u'Verify that ACCOUNT DELETED is visible and click Continue button')
 def step_impl(context):
-    account_deleted_text_account_create = context.driver.find_element(By.XPATH, "//*[@data-qa='account-deleted']")
+    account_deleted_text_account_create = context.driver.find_element(By.XPATH, "//*[@class='title text-center']")
     assert account_deleted_text_account_create.is_displayed(), "ACCOUNT DELETED is visible"
-    continue_button = context.driver.find_element(By.XPATH, "//*[@data-qa='continue-button']")
+    continue_button = context.driver.find_element(By.XPATH, "//*[@class='btn btn-primary']")
     continue_button.click()

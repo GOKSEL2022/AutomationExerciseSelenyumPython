@@ -7,3 +7,5 @@ Feature:TC24
     And  Verify that cart page is displayed
     And  Click Proceed To Checkout
     And  Click Register_Login button
+    And  Fill all details in Signup and create account
+    And  Verify ACCOUNT CREATED and click Continue button
