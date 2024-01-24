@@ -30,7 +30,7 @@ def step_impl(context):
 
 @when(u'Verify Logged in as username at top')
 def step_impl(context):
-    logged_username_text_account_create = context.driver.find_element(By.XPATH, "//*[.='goksel celik']")
+    logged_username_text_account_create = context.driver.find_element(By.XPATH, "//*[@class='fa fa-user']")
     assert logged_username_text_account_create.is_displayed(), "Logged in as username is visible"
 
 
@@ -90,6 +90,12 @@ def step_impl(context):
     comment_text_area_textbox_checkout.send_keys("Aldiğim ürünlerden memnun kaldim ,tekrar görüşmek üzere ")
     place_order_button_checkout = context.driver.find_element(By.XPATH, "//*[@href='/payment']")
     place_order_button_checkout.click()
+    context.driver.refresh()
+    comment_text_area_textbox_checkout2 = context.driver.find_element(By.XPATH, "//*[@name='message']")
+    comment_text_area_textbox_checkout2.send_keys("Aldiğim ürünlerden memnun kaldim ,tekrar görüşmek üzere ")
+    place_order_button_checkout2 = context.driver.find_element(By.XPATH, "//*[text()='Place Order']")
+    place_order_button_checkout2.click()
+
 
 @when(u'Enter payment details Name on Card Card Number CVC Expiration date')
 def step_impl(context):
@@ -104,20 +110,25 @@ def step_impl(context):
     yyyy_textbox_payment = context.driver.find_element(By.XPATH, "//*[@data-qa='expiry-year']")
     yyyy_textbox_payment.send_keys("2024")
 
-    @when(u'Click Pay and Confirm Order button')
-    def step_impl(context):
-        pay_and_confirm_order_button = context.driver.find_element(By.XPATH, "//*[@data-qa='pay-button']")
-        pay_and_confirm_order_button.click()
 
-    @when(u'Verify success message Your order has been placed successfully')
-    def step_impl(context):
-        your_order_has_been_placed_successfully_alert = context.driver.find_element(By.XPATH,
-                                                                                    "(//*[@class='alert-success alert'])[1]")
-        assert your_order_has_been_placed_successfully_alert.is_displayed()
-
-    @when(u'Click Pay and Confirm Order button')
-    def step_impl(context):
-        pay_and_confirm_order_button=context.driver.find_element(By.XPATH, "//*[@data-qa='pay-button']")
-        pay_and_confirm_order_button.click()
+@when(u'Click Pay and Confirm Order button')
+def step_impl(context):
+    pay_and_confirm_order_button = context.driver.find_element(By.XPATH, "//*[@data-qa='pay-button']")
+    pay_and_confirm_order_button.click()
 
 
+@when(u'Verify success message Your order has been placed successfully')
+def step_impl(context):
+    order_place_text_payment = context.driver.find_element(By.XPATH,
+                                                           "//*[@class='title text-center']")
+    order_place_text_payment.is_displayed()
+
+
+@when(u'Verify ACCOUNT DELETED and click Continue button')
+def step_impl(context):
+    delete_account_button_account_create = context.driver.find_element(By.XPATH, "(//*[@style='color:brown;'])[2]")
+    delete_account_button_account_create.click()
+    account_deleted_text_account_create = context.driver.find_element(By.XPATH, "//*[@class='title text-center']")
+    assert account_deleted_text_account_create.is_displayed(), "ACCOUNT DELETED is visible"
+    continue_button = context.driver.find_element(By.XPATH, "//*[@class='btn btn-primary']")
+    continue_button.click()
