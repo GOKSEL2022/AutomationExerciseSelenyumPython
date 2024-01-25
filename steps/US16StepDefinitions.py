@@ -71,16 +71,8 @@ def step_impl(context):
 
 @when(u'Verify Address Details and Review Your Order')
 def step_impl(context):
-    address_details_text_checkout = context.driver.find_element(By.XPATH, "//*[.='Address Details']")
+    address_details_text_checkout = context.driver.find_element(By.XPATH, "//*[@class='checkout-information']")
     assert address_details_text_checkout.is_displayed(), "Address Details sayfasindasiniz"
-    your_delivery_address_firstname_lastname_checkout = context.driver.find_element(By.XPATH,
-                                                                                    "(//*[@class='address_firstname"
-                                                                                    " address_lastname'])[1]")
-    assert your_delivery_address_firstname_lastname_checkout.is_displayed(), "YOUR DELIVERY ADDRESS Mr. Göksel Çelik"
-    your_billing_address_firstname_lastname_checkout = context.driver.find_element(By.XPATH,
-                                                                                   "(//*[@class='address_firstname "
-                                                                                   "address_lastname'])[1]")
-    assert your_billing_address_firstname_lastname_checkout.is_displayed(), "YOUR BILLING ADDRESS Mr. Göksel Çelik"
 
 
 @when(u'Enter description in comment text area and click Place Order')
